@@ -23,8 +23,8 @@ xs = tf.placeholder(tf.float32, [None, 1])
 ys = tf.placeholder(tf.float32, [None, 1])
 
 ## build layer
-l1 = add_layer(xs, 1, 10, activation_function=tf.nn.relu)
-prediction = add_layer(l1, 10, 1, activation_function=None)
+l1 = add_layer(xs, 1, 10, activation_function=tf.nn.relu) #hidden
+prediction = add_layer(l1, 10, 1, activation_function=None) #output
 loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction),reduction_indices=[1]))
 train_step = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
 
